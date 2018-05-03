@@ -132,7 +132,7 @@ export default {
 
     deleteItem (item) {
       const index = this.items.indexOf(item)
-      confirm('Are you sure you want to delete this item?') && this.items.splice(index, 1)
+      confirm('Are you sure you want to delete this item?') && this.$store.commit('deleteItem', index)
       // Todo: Make this delete item from store
     },
 
@@ -147,9 +147,10 @@ export default {
     save () {
       if (this.editedIndex > -1) {
         Object.assign(this.items[this.editedIndex], this.editedItem)
+        // TODO: Edit item in the store.
+        this.$store.commit('editItem', this.editedItem, this.editedIndex)
       } else {
-        this.items.push(this.editedItem)
-        // Todo: Make this add item to store
+        this.$store.commit('newItem', this.editedItem)
       }
       this.close()
     }

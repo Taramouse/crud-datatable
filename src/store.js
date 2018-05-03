@@ -45,7 +45,15 @@ export default new Vuex.Store({
     ]
   },
   mutations: {
-
+    newItem (state, payload) {
+      state.items.push(payload)
+    },
+    deleteItem (state, payload) {
+      state.items.splice(payload, 1)
+    },
+    updateItem (state, payload, index) {
+      state.items[index] = payload
+    }
   },
   actions: {
 
