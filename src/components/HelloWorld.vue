@@ -1,12 +1,16 @@
 <template>
-  <div class="hello">
+  <div>
     <h1>{{ message }}</h1>
-    <ul>
-      <li v-for="item in data" :key="item">{{ item }}</li>
-    </ul>
-    <ul>
-      <li v-for="item in items" :key="item.name">{{ item.name }} : {{ item.value }}</li>
-    </ul>
+    <v-list-tile>
+      <v-list-tile-title v-for="item in data" :key="item">{{ item }}</v-list-tile-title>
+    </v-list-tile>
+    <v-list>
+      <v-list-tile v-for="item in items" :key="item.name">
+        <v-list-tile-content>{{ item.name }}</v-list-tile-content>
+        <v-list-tile-content>{{ item.value }}</v-list-tile-content>
+      </v-list-tile>
+    </v-list>
+
   </div>
 </template>
 
@@ -32,18 +36,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
 </style>
