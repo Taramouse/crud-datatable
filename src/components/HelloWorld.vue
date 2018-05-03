@@ -148,7 +148,7 @@ export default {
       if (this.editedIndex > -1) {
         Object.assign(this.items[this.editedIndex], this.editedItem)
         // TODO: Edit item in the store.
-        this.$store.commit('editItem', this.editedItem, this.editedIndex)
+        this.$store.commit('updateItem', this.editedItem, this.editedIndex)
       } else {
         this.$store.commit('newItem', this.editedItem)
       }
