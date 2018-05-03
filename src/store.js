@@ -18,7 +18,8 @@ export default new Vuex.Store({
       { text: 'Model', value: 'model' },
       { text: 'Manufacturer', value: 'manufacturer' },
       { text: 'Best Lap', value: 'bestlap' },
-      { text: 'Race Time', value: 'racetime' }
+      { text: 'Race Time', value: 'racetime' },
+      { text: 'Actions', value: 'name', sortable: false }
     ],
     items: [
       {
