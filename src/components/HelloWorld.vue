@@ -1,15 +1,23 @@
 <template>
   <div>
-    <h1>{{ message }}</h1>
-    <v-list-tile>
-      <v-list-tile-title v-for="item in data" :key="item">{{ item }}</v-list-tile-title>
-    </v-list-tile>
-    <v-list>
-      <v-list-tile v-for="item in items" :key="item.name">
-        <v-list-tile-content>{{ item.name }}</v-list-tile-content>
-        <v-list-tile-content>{{ item.value }}</v-list-tile-content>
-      </v-list-tile>
-    </v-list>
+    <h1 class="text-xs-center info--text mb-2">{{ message }}</h1>
+
+    <v-data-table
+      :headers="headers"
+      :items="items"
+      hide-actions
+      class="elevation-1"
+    >
+      <template slot="items" slot-scope="props">
+        <td>{{ props.item.name }}</td>
+      <td class="text-xs-right">{{ props.item.laps }}</td>
+      <td class="text-xs-right">{{ props.item.circuit }}</td>
+      <td class="text-xs-right">{{ props.item.model }}</td>
+      <td class="text-xs-right">{{ props.item.manufacturer }}</td>
+      <td class="text-xs-right">{{ props.item.bestlap }}</td>
+      <td class="text-xs-right">{{ props.item.racetime }}</td>
+      </template>
+    </v-data-table>
 
   </div>
 </template>
@@ -24,8 +32,8 @@ export default {
     message () {
       return this.$store.getters.getMessage
     },
-    data () {
-      return this.$store.getters.getData
+    headers () {
+      return this.$store.getters.getHeaders
     },
     items () {
       return this.$store.getters.getItems

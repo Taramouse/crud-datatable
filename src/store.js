@@ -5,16 +5,42 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    msg: 'This is a store message.',
-    data: [
-      10, 202, 30, 69
+    msg: 'Vuetify table of Vuex state items.',
+    headers: [
+      {
+        text: 'Date Recorded',
+        align: 'left',
+        sortable: true,
+        value: 'name'
+      },
+      { text: 'Laps', value: 'laps' },
+      { text: 'Circuit', value: 'circuit' },
+      { text: 'Model', value: 'model' },
+      { text: 'Manufacturer', value: 'manufacturer' },
+      { text: 'Best Lap', value: 'bestlap' },
+      { text: 'Race Time', value: 'racetime' }
     ],
     items: [
-      { name: 'Laps', value: 3 },
-      { name: 'Circuit', value: 'Silverstone' },
-      { name: 'Model', value: 'DB9' },
-      { name: 'Manufacturer', value: 'Aston Martin' },
-      { name: 'Best Lap', value: '1:43:23' }
+      {
+        value: 'false',
+        name: '03/05/2018',
+        laps: 3,
+        circuit: 'Silverstone',
+        model: 'Vanquish',
+        manufacturer: 'Aston Martin',
+        bestlap: '1:25:23',
+        racetime: '4:25:26'
+      },
+      {
+        value: 'false',
+        name: '04/05/2018',
+        laps: 5,
+        circuit: 'Le Manns',
+        model: 'Cobra',
+        manufacturer: 'AC',
+        bestlap: '3:02:04',
+        racetime: '15:25:26'
+      }
     ]
   },
   mutations: {
@@ -27,8 +53,8 @@ export default new Vuex.Store({
     getMessage (state) {
       return state.msg
     },
-    getData (state) {
-      return state.data
+    getHeaders (state) {
+      return state.headers
     },
     getItems (state) {
       return state.items
